@@ -108,7 +108,7 @@ const Home = () => {
     };
 
     return (
-        <div className={`${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"} w-full h-[100vh] flex justify-center items-center py-10`}>
+        <div className={`${darkMode ? "bg-gray-900 text-white" : " text-black"} w-full h-[100vh] flex justify-center items-center py-10`}>
             <div className={`${darkMode ? "bg-gray-800 text-white" : "bg-white text-black"} xl:w-[40%] md:w-[60%] md:h-[70%] lg:w-[60%] h-[80%] border border-blue-600 rounded-4xl p-6 flex flex-col relative`}>
                 <NavLink to='/'>
 
