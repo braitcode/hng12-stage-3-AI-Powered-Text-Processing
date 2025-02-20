@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import bot from "../assets/images/bot.png"
 import { v4 as uuidv4 } from "uuid";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
     const [messages, setMessages] = useState([]);
@@ -108,8 +109,12 @@ const Home = () => {
 
     return (
         <div className={`${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"} w-full h-[100vh] flex justify-center items-center py-10`}>
-            <div className={`${darkMode ? "bg-gray-800 text-white" : "bg-white text-black"} xl:w-[40%] md:w-[60%] md:h-[70%] lg:w-[60%] h-[80%] border border-[#197686] rounded-4xl p-6 flex flex-col relative`}>
-                <button onClick={() => setDarkMode(!darkMode)} className="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded-md text-sm">
+            <div className={`${darkMode ? "bg-gray-800 text-white" : "bg-white text-black"} xl:w-[40%] md:w-[60%] md:h-[70%] lg:w-[60%] h-[80%] border border-blue-600 rounded-4xl p-6 flex flex-col relative`}>
+                <NavLink to='/'>
+
+                <button className="flex justify-items-start justify-center cursor-pointer hover:bg-gray-500 rounded-md bg-gray-700 text-white w-[100px] h-[30px]">Go Back!</button>
+                </NavLink>
+                <button onClick={() => setDarkMode(!darkMode)} className="absolute cursor-pointer hover:bg-gray-500 top-6 right-6 bg-gray-700 text-white px-3 py-1 rounded-md text-sm">
                     {darkMode ? "🌙 Dark" : "☀️ Light"}
                 </button>
 
@@ -133,16 +138,16 @@ const Home = () => {
                                     <option value="tr">Turkish</option>
                                     <option value="fr">French</option>
                                 </select>
-                                <button onClick={() => handleTranslate(index, msg.selectedLanguage)} className="text-sm bg-green-500 text-white px-3 py-1 rounded"> Translate</button>
+                                <button onClick={() => handleTranslate(index, msg.selectedLanguage)} className="text-sm bg-blue-500 cursor-pointer hover:bg-blue-400 text-white px-3 py-1 rounded"> Translate</button>
                                 {msg.text.length > 150 && msg.detectedLanguage === "en" && (
-                                    <button onClick={() => handleSummarize(index)} className=" text-sm bg-blue-600 text-white px-3 py-1 rounded">Summarize</button>
+                                    <button onClick={() => handleSummarize(index)} className=" text-sm bg-blue-600 hover:bg-blue-400 cursor-pointer text-white px-3 py-1 rounded">Summarize</button>
                                 )}
-                                {msg.summary && <motion.div className={`${darkMode ? "bg-gray-700 text-white" : "bg-gray-300 text-black"} p-3 rounded-lg rounded-bl-none max-w-[75%] self-start`}><p>Summary: {msg.summary}</p></motion.div>}
                             </div>
+                                {msg.summary && <motion.div className={`${darkMode ? "bg-gray-700 text-white" : "bg-gray-300 text-black"} p-3 rounded-lg rounded-bl-none max-w-[75%] self-start`}><p>Summary: {msg.summary}</p></motion.div>}
                             {msg.translation && (
                                 <div className="flex items-end gap-2">
                                     <img src={bot} alt="Bot" className="w-[26px] h-[26px] drop-shadow-lg" />
-                                    <motion.div className="bg-gray-300 text-black p-3 font-light rounded-3xl rounded-bl-none max-w-[75%] self-start">
+                                    <motion.div className="bg-gray-300 text-black p-3 font-light rounded-3xl rounded-bl-none max-w-[90%] self-start">
                                         <p>Translation: {msg.translation}</p>
                                     </motion.div>
                                 </div>
@@ -158,7 +163,7 @@ const Home = () => {
                     <motion.button
                         whileTap={{ scale: 0.9 }}
                         type="submit"
-                        className="bg-blue-600 text-white px-4 py-2 rounded-full disabled:opacity-50 flex items-center justify-center"
+                        className="bg-blue-600 hover:bg-blue-400 text-white px-4 py-2 rounded-full disabled:opacity-50 flex items-center justify-center"
                         disabled={loading}
                     >
                         {loading ? (
