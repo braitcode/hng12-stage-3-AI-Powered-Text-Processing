@@ -139,9 +139,11 @@ const Home = () => {
                                     <option value="fr">French</option>
                                 </select>
                                 <button onClick={() => handleTranslate(index, msg.selectedLanguage)} className="text-sm bg-blue-500 cursor-pointer hover:bg-blue-400 text-white px-3 py-1 rounded"> Translate</button>
-                                {msg.text.length > 150 && msg.detectedLanguage === "en" && (
-                                    <button onClick={() => handleSummarize(index)} className=" text-sm bg-blue-600 hover:bg-blue-400 cursor-pointer text-white px-3 py-1 rounded">Summarize</button>
-                                )}
+                                {msg.detectedLanguage === "en" && (
+    <button onClick={() => handleSummarize(index)} className="text-sm bg-blue-600 hover:bg-blue-400 cursor-pointer text-white px-3 py-1 rounded">
+        Summarize
+    </button>
+)}
                             </div>
                                 {msg.summary && <motion.div className={`${darkMode ? "bg-gray-700 text-white" : "bg-gray-300 text-black"} p-3 rounded-lg rounded-bl-none max-w-[75%] self-start`}><p>Summary: {msg.summary}</p></motion.div>}
                             {msg.translation && (

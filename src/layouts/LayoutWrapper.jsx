@@ -7,10 +7,7 @@ const LayoutWrapper = ({ children }) => {
 
   const definedRoutes = [
     "/",
-    "/ticket",
-    "/about",
-    "/attendee",
-    "/generated"
+    "/home"
   ];
 
   const isKnownRoute = definedRoutes.some((route) =>

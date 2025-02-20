@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const Intro = () => {
   return (
     <>
-      <div className="bg-white w-full xl:h-[100vh] flex justify-center items-center">
+      <div className="bg-white w-full xl:h-[100vh] md:h-full flex justify-center items-center">
         <div className="xl:w-[30%] border border-blue-600 lg:w-[40%] w-[95%] md:w-[50%] h-auto bg-white rounded-3xl p-6 flex flex-col relative">
           <div className="flex flex-col gap-20">
             <span className='flex flex-col gap-4 items-center'>
